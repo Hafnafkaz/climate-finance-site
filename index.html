@@ -54,20 +54,30 @@
           <div class="hero-stat-label">Licensed microfinance institution</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value tabular">280+</div>
+          <div class="hero-stat-value tabular" data-count="280" data-suffix="+">280+</div>
           <div class="hero-stat-label">Women trained in financial literacy, Jan 2026</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value tabular">US$1.7B</div>
+          <div class="hero-stat-value tabular" data-count="1.7" data-prefix="US$" data-suffix="B">US$1.7B</div>
           <div class="hero-stat-label">Combined funding-proposal pipeline (FP179, FP223)</div>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Rungwe</span><span>Isajilo Ward</span><span>Tukuyu</span><span>Mbeya</span><span>Iringa</span><span>COP29 Baku</span><span>COP30 Bel&eacute;m</span><span>Central Bank of Tanzania licensed</span>
+      <span>Rungwe</span><span>Isajilo Ward</span><span>Tukuyu</span><span>Mbeya</span><span>Iringa</span><span>COP29 Baku</span><span>COP30 Bel&eacute;m</span><span>Central Bank of Tanzania licensed</span>
+    </div>
+  </div>
+
   <section class="section">
     <div class="wrap stat-split reveal">
-      <div class="stat-huge">&lt;4<span>%</span></div>
+      <div class="stat-huge">
+        <svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="47"/><circle class="value" cx="50" cy="50" r="47" pathLength="1"/></svg>
+        <span>&lt;4<span>%</span></span>
+      </div>
       <div>
         <h2 class="h2">Africa contributes less than 4% of global CO&#8322; emissions &mdash; and lives closest to the consequences.</h2>
         <p class="body-text" style="margin-top:18px;">In Tukuyu, one drought can still take a whole season. Communities that contribute least to the crisis live closest to its consequences. Climate finance is not a slogan &mdash; it is the instrument that turns a failed harvest into a buffer, a local enterprise into a livelihood, and a project into something a funder can sign.</p>
@@ -92,7 +102,7 @@
         <blockquote class="pull-quote">We believe climate action must be financially sustainable, inclusive, and measurable &mdash; because climate solutions that cannot be financed cannot endure.</blockquote>
         <p style="margin-top:24px;"><a class="text-link" href="about.php.html#who-we-are">About Africa Climate Finance &rarr;</a></p>
       </div>
-      <div class="split-media">
+      <div class="split-media mask-reveal">
         <picture>
           <source srcset="assets/img/stories/dairy-farming-beneficiary-rungwe-tanzania.webp" type="image/webp">
           <img src="assets/img/stories/dairy-farming-beneficiary-rungwe-tanzania.png" alt="Dairy-farming beneficiary with his herd, Rungwe, Tanzania" loading="lazy">
@@ -106,7 +116,8 @@
       <h2 class="h2">From the classroom to the term sheet.</h2>
       <p class="lede" style="margin-top:14px;">We train, we lend, and we prepare projects so they can travel from a ward in Mbeya to a funding proposal.</p>
       <ol class="step-flow">
-        <li class="step is-live">
+        <div class="thread" aria-hidden="true"></div>
+        <li class="step">
           <span class="step-index tabular">01</span>
           <h3 class="step-title">Educate</h3>
           <p class="step-desc">Financial literacy and climate knowledge before money moves.</p>
@@ -135,7 +146,7 @@
     <div class="wrap reveal">
       <h2 class="h2">Seven services. One job: make climate capital usable.</h2>
       <p class="lede" style="margin-top:14px;">We do not offer a catalogue of consulting products. These are the instruments we use to move a climate idea from a conversation to a financed activity.</p>
-      <div class="service-grid">
+      <div class="service-grid stagger">
 
         <article class="service-card">
           <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><path d="M7 11l1.8-2.5L10.5 11l2.5-3.5"/></svg></div>
@@ -191,7 +202,7 @@
   </section>
 
   <article class="story reveal">
-    <div class="story-media">
+    <div class="story-media mask-reveal">
       <picture>
         <source srcset="assets/img/highlights/women-280-session.webp" type="image/webp">
         <img src="assets/img/highlights/women-280-session.png" alt="Financial literacy and climate training session with women in Isajilo Ward" loading="lazy">
@@ -214,7 +225,7 @@
   <section class="section" id="work">
     <div class="wrap reveal">
       <h2 class="h2">Stories from the field.</h2>
-      <div class="work-grid">
+      <div class="work-grid stagger">
         <a class="work-card" href="testimonials.php.html#ginger-story">
           <picture>
             <source srcset="assets/img/stories/ginger-farmer-isajilo-tukuyu-tanzania.webp" type="image/webp">
@@ -287,5 +298,6 @@
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>
