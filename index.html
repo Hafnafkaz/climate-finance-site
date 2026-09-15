@@ -32,19 +32,44 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="hero-media">
-      <picture>
-        <source srcset="assets/img/hero/home-hero-women-community.webp" type="image/webp">
-        <img src="assets/img/hero/home-hero-women-community.jpg" alt="Women gathered for a financial literacy and climate session in Rungwe, Tanzania">
-      </picture>
-    </div>
+  <section class="hero hero--deck">
+    <svg class="hero-route" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+      <path id="hero-route-path" class="route" pathLength="1" d="M 40 520 C 220 520, 300 380, 470 380 S 700 470, 780 300 S 1020 160, 1160 210" />
+      <circle class="route-dot" r="6">
+        <animateMotion dur="2.3s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" keyPoints="0;1"><mpath href="#hero-route-path"/></animateMotion>
+      </circle>
+    </svg>
     <div class="hero-inner wrap">
-      <h1 class="h1">Climate action needs finance that can move.</h1>
-      <p class="hero-desc">We structure capital for climate work already happening on the ground &mdash; from Central Bank of Tanzania&ndash;licensed microfinance in Rungwe to projects institutional funds can actually back.</p>
-      <div class="hero-actions">
-        <a href="contact.php.html" class="btn btn-gold">Partner with us</a>
-        <a href="testimonials.php.html" class="btn btn-ghost-light">See the work</a>
+      <div class="hero-copy">
+        <h1 class="h1">Climate action needs finance that can move.</h1>
+        <p class="hero-desc">We structure capital for climate work already happening on the ground &mdash; from Central Bank of Tanzania&ndash;licensed microfinance in Rungwe to projects institutional funds can actually back.</p>
+        <div class="hero-actions">
+          <a href="contact.php.html" class="btn btn-gold">Partner with us</a>
+          <a href="testimonials.php.html" class="btn btn-ghost-dark">See the work</a>
+        </div>
+      </div>
+      <div class="hero-deck" aria-label="Photographs from the field">
+        <figure class="deck-card" style="--n:0">
+          <picture>
+            <source srcset="assets/img/stories/nyasa-masala-entrepreneur-mbeya-tanzania.webp" type="image/webp">
+            <img src="assets/img/stories/nyasa-masala-entrepreneur-mbeya-tanzania.png" alt="Nyasa Masala founder with product in Mbeya">
+          </picture>
+          <figcaption><span>Nyasa Masala</span>Mbeya</figcaption>
+        </figure>
+        <figure class="deck-card" style="--n:1">
+          <picture>
+            <source srcset="assets/img/stories/ginger-farmer-isajilo-tukuyu-tanzania.webp" type="image/webp">
+            <img src="assets/img/stories/ginger-farmer-isajilo-tukuyu-tanzania.png" alt="Ginger farmer in Isajilo, Tukuyu">
+          </picture>
+          <figcaption><span>Organic ginger</span>Isajilo, Tukuyu</figcaption>
+        </figure>
+        <figure class="deck-card" style="--n:2">
+          <picture>
+            <source srcset="assets/img/hero/home-hero-women-community.webp" type="image/webp">
+            <img src="assets/img/hero/home-hero-women-community.jpg" alt="Women gathered for a financial literacy and climate session in Rungwe, Tanzania">
+          </picture>
+          <figcaption><span>280 women trained</span>Isajilo Ward, Rungwe &middot; Jan 2026</figcaption>
+        </figure>
       </div>
     </div>
     <div class="hero-stats">

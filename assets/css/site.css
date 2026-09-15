@@ -567,3 +567,72 @@ body.is-loaded .hero-media img { animation: drift 14s var(--ease-out) forwards; 
   .thread::after { transition: none; }
   .reveal .h2::after { transform: scaleX(1); }
 }
+
+/* ============================================================
+   Hero — evidence deck variant (words on ground, photos as objects)
+   ============================================================ */
+.hero--deck { background: var(--stone-50); color: var(--ink-900); min-height: 0; }
+.hero--deck::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 85% 20%, rgba(217, 164, 65, 0.16), transparent 70%),
+    radial-gradient(45% 40% at 10% 90%, rgba(31, 77, 61, 0.10), transparent 70%);
+}
+.hero-route { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero-route .route {
+  fill: none; stroke: var(--gold-500); stroke-width: 2; stroke-linecap: round; opacity: 0.85;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+}
+body.is-loaded .hero-route .route { animation: draw 1.8s var(--ease-out) 0.5s forwards; }
+.hero-route .route-dot { fill: var(--forest-800); stroke: var(--gold-100); stroke-width: 2; opacity: 0; }
+body.is-loaded .hero-route .route-dot { animation: fade-in 0.3s 0.5s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fade-in { to { opacity: 1; } }
+
+.hero--deck .hero-inner {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 72px);
+  align-items: center; text-align: left; padding-block: clamp(48px, 7vw, 96px) clamp(56px, 7vw, 96px);
+}
+.hero--deck .h1 { color: var(--ink-900); margin-inline: 0; max-width: 13ch; }
+.hero--deck .hero-desc { color: var(--ink-700); margin-inline: 0; }
+.hero--deck .hero-actions { justify-content: flex-start; }
+.hero--deck .hero-stats { background: var(--forest-900); border-top: 0; }
+
+.hero-deck { position: relative; height: min(560px, 60vw); z-index: 1; --py: 0; }
+.deck-card {
+  position: absolute; width: 58%; aspect-ratio: 4 / 5.1; margin: 0;
+  background: var(--white); padding: 10px 10px 0; border-radius: 12px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--line);
+  transform: rotate(var(--rot)); opacity: 0;
+  translate: 0 calc(var(--py) * var(--depth) * -1px);
+  transition: scale 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+  will-change: translate;
+}
+.deck-card:hover { scale: 1.04; z-index: 10 !important; box-shadow: 0 40px 80px -24px rgba(15, 42, 32, 0.45), 0 0 0 1px var(--line); }
+.deck-card[style*="--n:0"] { left: 0;   top: 10%; --rot: -7deg; --depth: 0.35; z-index: 1; }
+.deck-card[style*="--n:1"] { left: 20%; top: 0;   --rot: 4deg;  --depth: 0.6;  z-index: 2; }
+.deck-card[style*="--n:2"] { left: 40%; top: 16%; --rot: -2deg; --depth: 0.9;  z-index: 3; }
+body.is-loaded .deck-card { animation: deal 1s var(--ease-out) forwards; animation-delay: calc(0.35s + var(--n) * 0.16s); }
+@keyframes deal {
+  from { opacity: 0; transform: translateY(70px) rotate(calc(var(--rot) + 8deg)); }
+  to   { opacity: 1; transform: translateY(0)    rotate(var(--rot)); }
+}
+.deck-card img { width: 100%; aspect-ratio: 4 / 4; object-fit: cover; border-radius: 6px; }
+.deck-card figcaption {
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-500); padding: 10px 4px 12px;
+  letter-spacing: 0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.deck-card figcaption span { display: block; font-family: var(--font-body); font-weight: 600; font-size: 0.86rem; color: var(--ink-900); margin-bottom: 2px; }
+
+@media (max-width: 900px) {
+  .hero--deck .hero-inner { grid-template-columns: 1fr; }
+  .hero--deck .h1 { max-width: 16ch; }
+  .hero-deck { height: min(420px, 95vw); margin-top: 8px; }
+  .deck-card { width: 56%; }
+  .hero-route { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .deck-card { opacity: 1; animation: none !important; translate: none; }
+  .hero-route .route { stroke-dashoffset: 0; animation: none !important; }
+  .hero-route .route-dot { opacity: 1; animation: none !important; }
+}

@@ -78,6 +78,19 @@
     update();
   }
 
+  /* ---------- hero deck parallax ---------- */
+  var deck = document.querySelector('.hero-deck');
+  if (deck && !reduce) {
+    var deckTick = false;
+    function deckUpdate() {
+      deckTick = false;
+      deck.style.setProperty('--py', Math.min(window.scrollY, 900) * 0.12);
+    }
+    window.addEventListener('scroll', function () {
+      if (!deckTick) { deckTick = true; requestAnimationFrame(deckUpdate); }
+    }, { passive: true });
+  }
+
   /* ---------- header compaction ---------- */
   var lastState = false;
   window.addEventListener('scroll', function () {
