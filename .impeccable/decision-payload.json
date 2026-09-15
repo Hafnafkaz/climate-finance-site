@@ -1,0 +1,139 @@
+{
+  "title": "Choose the visual world for Africa Climate Finance",
+  "question": "The roll assigned Concept Note Register. Keep it, take the pick or the Custody Ribbon challenger, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Concept Note Register",
+      "kicker": "THE ROLL",
+      "lineage": "GCF/Adaptation Fund concept-note & funding-proposal cover sheets",
+      "thesis": "The site reads like the funding-proposal register this org already produces — project IDs, dated custody, one continuous evidence trail — not a brochure.",
+      "palette": ["#F6F1E4", "#17221D", "#A6402F", "#1F5C46"],
+      "materials": ["gazette letterpress", "rubber-stamp ink", "tabular tracked numerals"],
+      "viewport": "A dated register header (project ID, place, date) leads into a custody thread of Educate→Finance→Prepare→Place, each stage a stamped lit/unlit state; the hero photo sits inside a document-window frame, never full-bleed.",
+      "risk": "Reads cold/bureaucratic if the stamp-ink accent doesn't carry enough warmth from the real photography.",
+      "raised": [
+        { "from": "challenger-custody-ribbon", "raise": "Custody Thread — a continuous dated line traces capital and people from ward to term sheet, in known/confirmed vs. in-progress states." },
+        { "from": "challenger-risograph", "raise": "Stamp-Ink Discipline — palette held to one paper ground plus two spot inks (approval red, ledger teal), like a real rubber-stamped document, not a broad palette." },
+        { "from": "challenger-drum-machine", "raise": "Step-State — the four-stage model renders as lit/unlit steps, not a static list, so every page shows which stage is live." }
+      ],
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "register header · project ID / place / date", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "stage thread rail · Educate·Finance·Prepare·Place", "x": 0, "y": 1, "w": 3, "h": 7, "accent": true },
+          { "label": "document-window hero photo + headline", "x": 3, "y": 1, "w": 9, "h": 5 },
+          { "label": "proof stat rail · license · pipeline value · COP", "x": 3, "y": 6, "w": 9, "h": 2 },
+          { "label": "primary CTA + text link", "x": 3, "y": 8, "w": 9, "h": 2 }
+        ]
+      },
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Savings-Group Passbook",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "VSLA savings-group passbooks used across rural Tanzania",
+      "thesis": "The literal object every trained woman in these photos already owns — hand-ruled columns, stamped entries, a running balance — rebuilt as the site's own ledger of contributions and outcomes.",
+      "palette": ["#E8DCC0", "#21262B", "#8B3A2E"],
+      "materials": ["hand-ruled ledger lines", "carbon-copy stamp", "biro ink"],
+      "viewport": "A ruled ledger page as the hero — name, date, contribution, balance — with real photography inset in the margin like a pasted photo.",
+      "risk": "The single most expected literal choice for ‘microfinance’ — needs unusually specific real ledger data (real names, real dates) to avoid reading as decoration.",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "ledger masthead · org name as passbook cover", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "ruled ledger hero · name/date/contribution/balance", "x": 0, "y": 1, "w": 7, "h": 6, "accent": true },
+          { "label": "inset real photo pasted in margin", "x": 7, "y": 1, "w": 5, "h": 6 },
+          { "label": "entries row · seven services as ledger line-items", "x": 0, "y": 7, "w": 12, "h": 2 },
+          { "label": "CTA stamped ‘Partner with us’", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      },
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-custody-ribbon",
+      "label": "Custody Ribbon",
+      "verdict": "competitive",
+      "lineage": "museum provenance ribbons tracing an object's custody chain",
+      "thesis": "Every programme, every shilling, traced as one continuous line from community to institution and back — known, in-progress, and disputed states made visible.",
+      "palette": ["#EFE7D8", "#A33327", "#6B6259"],
+      "materials": ["archival ledger serif", "ribbon line", "dated stamps"],
+      "case": "Fuses cleanly with the org's own four-stage model and serves funder and community readers equally by making the capital trail itself the story; loses narrowly to the register world on how instantly a funder recognizes the specific document genre this org actually produces.",
+      "risk": "Can read as a data-viz gimmick unless grounded in real dated waypoints.",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "archival header · org name + kicker", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "vertical ribbon · dated Educate→Finance→Prepare→Place waypoints", "x": 0, "y": 1, "w": 4, "h": 8, "accent": true },
+          { "label": "headline + lead photo beside ribbon", "x": 4, "y": 1, "w": 8, "h": 4 },
+          { "label": "waypoint detail card · known / in-progress state", "x": 4, "y": 5, "w": 8, "h": 4 },
+          { "label": "CTA", "x": 0, "y": 9, "w": 12, "h": 1 }
+        ]
+      },
+      "comp": ".impeccable/mocks/decision/challenger-custody-ribbon.webp"
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "Dawn Cyclorama",
+      "verdict": "declined",
+      "lineage": "theatrical cyclorama lighting, night to day",
+      "case": "Fuses poorly: an atmospheric light-only system has no way to carry hard evidence (license numbers, funding figures) a funder needs.",
+      "kept": "Graduated phase-tone bands marking which pipeline stage a section belongs to."
+    },
+    {
+      "id": "challenger-risograph",
+      "label": "Riso Print System",
+      "verdict": "declined",
+      "lineage": "two/three-spot-ink risograph printing",
+      "case": "Fuses poorly: zine-style ink misregistration reads as indie creative-agency, not a licensed financial institution.",
+      "kept": "Restraint to two spot inks, donated to the register world as its stamp-ink discipline."
+    },
+    {
+      "id": "challenger-drum-machine",
+      "label": "Step Row",
+      "verdict": "declined",
+      "lineage": "early-80s rhythm-machine step row",
+      "case": "Fuses poorly: a music-instrument register undercuts the credibility a climate-finance funder needs.",
+      "kept": "Lit/unlit step states, donated to the register world's four-stage model."
+    },
+    {
+      "id": "challenger-woodblock",
+      "label": "Registered Woodblock",
+      "verdict": "declined",
+      "lineage": "Edo woodblock print, layered color registration",
+      "case": "Fuses poorly: a Japanese print tradition has no cultural connection to Tanzania or East African climate finance.",
+      "kept": "Layer-by-layer registration reveal, kept only as a motion idea."
+    },
+    {
+      "id": "challenger-sukeban",
+      "label": "Annotated Uniform Code",
+      "verdict": "declined",
+      "lineage": "school-uniform subculture dress code as annotated document",
+      "case": "Fuses poorly: a fashion-subculture dress code has no audience or product relevance to climate finance.",
+      "kept": "Nothing beyond what document annotation already supports."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": true },
+  "canon": true,
+  "canonCard": {
+    "label": "Climate-NGO Standard",
+    "thesis": "Drone-shot green hills, translucent teal-overlay hero, icon-grid services, logo-strip trust bar — the default every climate/development org ships.",
+    "palette": ["#FFFFFF", "#1B2A2A", "#2E7D5B", "#F5F5F0"],
+    "materials": ["stock photography", "flat icon grid", "gradient overlay"],
+    "viewport": "Full-bleed drone/community photo hero with a teal gradient, centered white headline, three-icon service row below.",
+    "risk": "Indistinguishable from every other climate-finance or development NGO site — exactly what the brief asked to avoid.",
+    "wireframe": {
+      "cols": 12, "rows": 10,
+      "regions": [
+        { "label": "full-bleed photo hero + gradient overlay", "x": 0, "y": 0, "w": 12, "h": 5 },
+        { "label": "centered white headline + CTA button", "x": 2, "y": 1, "w": 8, "h": 2 },
+        { "label": "3-icon service grid", "x": 0, "y": 5, "w": 12, "h": 3 },
+        { "label": "logo trust strip", "x": 0, "y": 8, "w": 12, "h": 2 }
+      ]
+    },
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}
