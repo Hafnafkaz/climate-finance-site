@@ -383,6 +383,26 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing:
 @media (max-width: 700px) { .index-list a { flex-direction: column; align-items: flex-start; gap: 6px; } .index-list h3 { min-width: 0; } }
 
 /* ============================================================
+   FAQ accordion (native <details>/<summary>)
+   ============================================================ */
+.faq-list { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; margin-top: 32px; }
+.faq-item { background: var(--white); }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 22px 24px; display: flex; align-items: center;
+  justify-content: space-between; gap: 20px; font-weight: 600; color: var(--forest-800); font-size: 1.02rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: ""; flex: 0 0 auto; width: 12px; height: 12px; border-right: 2px solid var(--gold-500);
+  border-bottom: 2px solid var(--gold-500); transform: rotate(45deg); transition: transform 0.2s var(--ease-out);
+}
+.faq-item[open] summary::after { transform: rotate(-135deg); }
+.faq-item summary:hover { background: var(--stone-100); }
+.faq-item summary:focus-visible { outline: 2px solid var(--gold-500); outline-offset: -2px; }
+.faq-item .faq-body { padding: 0 24px 24px; color: var(--ink-700); font-size: 0.96rem; line-height: 1.7; }
+.faq-item .faq-body a { color: var(--forest-800); text-decoration: underline; }
+
+/* ============================================================
    Close / CTA band
    ============================================================ */
 .cta-band { text-align: center; }
@@ -743,4 +763,47 @@ body.is-loaded .deck-card { animation: deal 1s var(--ease-out) forwards; animati
 
 /* pull-quote a little more room */
 .pull-quote { max-width: 46ch; }
+
+/* ============================================================
+   Team grid (person cards — team.php.html)
+   ============================================================ */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+.team-card {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md);
+  overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: var(--shadow-sm); transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out), border-color 0.22s var(--ease-out);
+}
+.team-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--forest-700); }
+.team-photo { aspect-ratio: 1; background: var(--stone-100); }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-photo-placeholder {
+  width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; color: var(--ink-500); font-family: var(--font-mono); font-size: 0.76rem; text-align: center; padding: 16px;
+}
+.team-photo-placeholder svg { width: 30px; height: 30px; opacity: 0.6; }
+.team-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
+.team-name { font-size: 1.05rem; }
+.team-name a { transition: color 0.18s var(--ease-out); }
+.team-name a:hover { color: var(--forest-700); }
+.team-role { font-family: var(--font-mono); font-size: 0.78rem; color: var(--forest-700); letter-spacing: 0.01em; }
+.team-bio { font-size: 0.92rem; color: var(--ink-700); line-height: 1.55; margin-top: 8px; flex-grow: 1; }
+.team-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.team-links { display: flex; gap: 8px; }
+.team-links a {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; color: var(--ink-700);
+  transition: background-color 0.18s var(--ease-out), color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+}
+.team-links a:hover { background: var(--forest-800); color: var(--white); border-color: var(--forest-800); }
+.team-links svg { width: 15px; height: 15px; }
+.team-profile-link { font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; color: var(--forest-800); display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.team-profile-link:hover { color: var(--forest-950); }
+.team-group-title { font-size: 0.82rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--forest-700); margin-top: 56px; }
+.team-group-title:first-of-type { margin-top: 8px; }
+
+/* step-thumbs — small photo row inside a .step, used where a step has supporting images */
+.step-thumbs { display: flex; gap: 8px; margin-top: 18px; }
+.step-thumbs a { display: block; border-radius: var(--radius-sm); overflow: hidden; flex: 1; aspect-ratio: 4/3; box-shadow: var(--shadow-sm); }
+.step-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease-out); }
+.step-thumbs a:hover img { transform: scale(1.06); }
 
