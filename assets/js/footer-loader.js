@@ -7,7 +7,7 @@
   if (!el) return;
   var base = document.querySelector('base');
   var baseUrl = (base && base.href) ? base.href.replace(/\/?$/, '/') : '';
-  fetch(baseUrl + 'assets/inc/footer.html')
+  fetch(baseUrl + 'assets/inc/footer.html?v=' + Date.now(), { cache: 'no-store' })
     .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
     .then(function(html) {
       el.innerHTML = html;

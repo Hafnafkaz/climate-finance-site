@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css?v=v2">
   <title>Africa Climate Finance - Tanzania</title>
   <meta name="description" content="Africa Climate Finance structures climate capital in Tanzania, from Central Bank of Tanzania-licensed microfinance in Rungwe to bankable projects for institutional funds.">
   <link rel="canonical" href="https://climatefinance.co.tz/">
@@ -28,11 +28,12 @@
 <body id="top">
 
 <div id="header-placeholder" data-active="home"></div>
-<script src="assets/js/header-loader.js"></script>
+<script src="assets/js/header-loader.js?v=v2"></script>
 
 <main id="main">
 
-  <section class="hero hero--deck">
+  <section class="hero hero--deck" id="top-section" data-rail-label="Start">
+    <div class="hero-spotlight" aria-hidden="true"></div>
     <svg class="hero-route" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
       <path id="hero-route-path" class="route" pathLength="1" d="M 40 520 C 220 520, 300 380, 470 380 S 700 470, 780 300 S 1020 160, 1160 210" />
       <circle class="route-dot" r="6">
@@ -41,7 +42,7 @@
     </svg>
     <div class="hero-inner wrap">
       <div class="hero-copy">
-        <h1 class="h1">Climate action needs finance that can move.</h1>
+        <h1 class="h1">Climate action needs finance that can <em>move</em>.</h1>
         <p class="hero-desc">We structure capital for climate work already happening on the ground &mdash; from Central Bank of Tanzania&ndash;licensed microfinance in Rungwe to projects institutional funds can actually back.</p>
         <div class="hero-actions">
           <a href="contact.php.html" class="btn btn-gold">Partner with us</a>
@@ -97,7 +98,7 @@
     </div>
   </div>
 
-  <section class="section">
+  <section class="section" id="context" data-rail-label="Context">
     <div class="wrap stat-split reveal">
       <div class="stat-huge">
         <svg class="arc" viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="47"/><circle class="value" cx="50" cy="50" r="47" pathLength="1"/></svg>
@@ -111,7 +112,7 @@
     </div>
   </section>
 
-  <section class="section" id="who-we-are">
+  <section class="section" id="who-we-are" data-rail-label="Who we are">
     <div class="wrap split reveal">
       <div>
         <h2 class="h2">Bridging grassroots communities and institutional capital.</h2>
@@ -136,7 +137,7 @@
     </div>
   </section>
 
-  <section class="section section-forest" id="how-we-work">
+  <section class="section section-forest" id="how-we-work" data-rail-label="How we work">
     <div class="wrap reveal">
       <h2 class="h2">From the classroom to the term sheet.</h2>
       <p class="lede" style="margin-top:14px;">We train, we lend, and we prepare projects so they can travel from a ward in Mbeya to a funding proposal.</p>
@@ -167,7 +168,7 @@
     </div>
   </section>
 
-  <section class="section" id="services">
+  <section class="section" id="services" data-rail-label="Services">
     <div class="wrap reveal">
       <h2 class="h2">Seven services. One job: make climate capital usable.</h2>
       <p class="lede" style="margin-top:14px;">We do not offer a catalogue of consulting products. These are the instruments we use to move a climate idea from a conversation to a financed activity.</p>
@@ -226,7 +227,7 @@
     </div>
   </section>
 
-  <article class="story reveal">
+  <article class="story reveal" id="story" data-rail-label="Rungwe">
     <div class="story-media mask-reveal">
       <picture>
         <source srcset="assets/img/highlights/women-280-session.webp" type="image/webp">
@@ -247,7 +248,7 @@
     </div>
   </article>
 
-  <section class="section" id="work">
+  <section class="section" id="work" data-rail-label="Stories">
     <div class="wrap reveal">
       <h2 class="h2">Stories from the field.</h2>
       <div class="work-grid stagger">
@@ -301,7 +302,7 @@
     </div>
   </section>
 
-  <section class="section cta-band reveal">
+  <section class="section cta-band reveal" id="cta" data-rail-label="Contact">
     <div class="wrap">
       <h2 class="h2">Bring a project. Bring a partnership. Bring a community.</h2>
       <p class="lede" style="margin-top:14px;">Whether you are preparing a climate proposal, designing a loan product, or looking for a counterpart in Tanzania, start with a conversation.</p>
@@ -315,14 +316,16 @@
 </main>
 
 <div id="footer-placeholder"></div>
-<script src="assets/js/footer-loader.js"></script>
+<script src="assets/js/footer-loader.js?v=v2"></script>
+
+<nav class="side-rail" aria-label="Sections"></nav>
 
 <button type="button" class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
 </button>
 
 <script src="assets/js/i18n.js"></script>
-<script src="assets/js/nav.js"></script>
-<script src="assets/js/motion.js"></script>
+<script src="assets/js/nav.js?v=v2"></script>
+<script src="assets/js/motion.js?v=v2"></script>
 </body>
 </html>
