@@ -58,7 +58,11 @@
     requestAnimationFrame(frame);
   }
 
-  /* ---------- generic in-view triggers ---------- */
+  /* ---------- generic in-view triggers ----------
+     .mask-reveal hides itself via its own clip-path, which clips its
+     rendered area to zero — Chromium's IntersectionObserver treats a
+     self-clipped element as never-intersecting, so it can never detect
+     its own reveal. Observe its parent instead and flag the child. */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -69,8 +73,21 @@
         el.querySelectorAll('[data-count]').forEach(countUp);
         io.unobserve(el);
       });
-    }, { threshold: 0.35 });
-    document.querySelectorAll('[data-count], .arc, .mask-reveal, .stagger').forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('[data-count], .arc, .stagger').forEach(function (el) { io.observe(el); });
+
+    document.querySelectorAll('.mask-reveal').forEach(function (el) {
+      var target = el.parentElement || el;
+      var maskIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          el.classList.add('in-view');
+          maskIo.unobserve(target);
+        });
+      }, { threshold: 0.2 });
+      maskIo.observe(target);
+    });
   }
 
   /* ---------- capital thread: scroll progress through the step flow ---------- */

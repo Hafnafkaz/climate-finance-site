@@ -55,6 +55,7 @@ Model: "Educate → Finance → Prepare → Place" (classroom to term sheet). Th
 - Real beneficiary stories with names/places: ginger farmers (Isajilo, Tukuyu), Nyasa Masala (Mbeya spice enterprise), Power Porridge (Aswile Francis Mwaihola, Iringa).
 - Real stat: 280+ women trained in financial literacy, Isajilo Ward, Rungwe, January 2026.
 - Partner/affiliation logos referenced (UN Climate Change, IPCC, SDGs, Mbeya Avocados) — real links, treat logos as evidence to reuse, not to fabricate new ones.
+- Pink Hijab Initiative Tanzania (pinkhijab.or.tz, women's/youth empowerment org, founded 2016) added to the affiliations strip at the user's request; real logo fetched from their official site.
 - Social links (Facebook/Twitter/Instagram/LinkedIn in the footer) currently point to generic platform homepages, not real org profiles — do not treat as confirmed real handles.
 - No pricing, licensing terms, or deployment credentials are documented; none should be invented.
 
