@@ -115,20 +115,24 @@
     update();
   }
 
-  /* ---------- hero cursor spotlight ---------- */
-  var spotlight = document.querySelector('.hero-spotlight');
-  var heroSection = document.querySelector('.hero--deck');
-  if (spotlight && heroSection && !reduce && window.matchMedia('(pointer: fine)').matches) {
-    heroSection.addEventListener('pointermove', function (e) {
-      var r = heroSection.getBoundingClientRect();
-      var x = ((e.clientX - r.left) / r.width) * 100;
-      var y = ((e.clientY - r.top) / r.height) * 100;
-      spotlight.style.setProperty('--sx', x + '%');
-      spotlight.style.setProperty('--sy', y + '%');
-      spotlight.style.opacity = '1';
+  /* ---------- cursor spotlight (all pages) ---------- */
+  if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+    var spot = document.querySelector('.hero-spotlight');
+    if (!spot) {
+      spot = document.createElement('div');
+      spot.className = 'hero-spotlight';
+      spot.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(spot);
+    }
+    spot.style.opacity = '0';
+    document.addEventListener('pointermove', function (e) {
+      var x = (e.clientX / window.innerWidth) * 100;
+      var y = (e.clientY / window.innerHeight) * 100;
+      spot.style.setProperty('--sx', x + '%');
+      spot.style.setProperty('--sy', y + '%');
+      spot.style.opacity = '1';
     });
-    heroSection.addEventListener('pointerleave', function () { spotlight.style.opacity = '0'; });
-    spotlight.style.opacity = '0.6';
+    document.addEventListener('pointerleave', function () { spot.style.opacity = '0'; });
   }
 
   /* ---------- draggable deck cards ---------- */

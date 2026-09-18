@@ -5,15 +5,12 @@
   var theme = stored || (prefersDark ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', theme);
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.addEventListener('headerLoaded', bindToggle);
-    bindToggle();
-  });
-
+  var bound = false;
   function bindToggle() {
+    if (bound) return;
     var btn = document.querySelector('.theme-toggle');
-    if (!btn || btn._bound) return;
-    btn._bound = true;
+    if (!btn) return;
+    bound = true;
     btn.addEventListener('click', function () {
       var current = document.documentElement.getAttribute('data-theme') || 'light';
       var next = current === 'dark' ? 'light' : 'dark';
@@ -21,4 +18,9 @@
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
   }
+
+  document.addEventListener('headerLoaded', bindToggle);
+  document.addEventListener('DOMContentLoaded', bindToggle);
+  var n = 0;
+  var t = setInterval(function () { bindToggle(); if (bound || ++n > 30) clearInterval(t); }, 200);
 })();

@@ -13,7 +13,7 @@
     .then(function(r) { return r.ok ? r.text() : Promise.reject(); })
     .then(function(html) {
       el.outerHTML = html;
-      var header = document.querySelector('.header-wrap');
+      var header = document.querySelector('.site-header');
       if (!header || !active) return;
 
       var map = {
