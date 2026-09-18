@@ -223,6 +223,22 @@
     }
   }, { passive: true });
 
+  /* ---------- cycling hero word (Tree-of-Life style) ---------- */
+  var cycleWrap = document.querySelector('.hero-cycle-wrap');
+  if (cycleWrap) {
+    var words = cycleWrap.querySelectorAll('.hero-cycle-word');
+    var idx = 0;
+    setInterval(function () {
+      var cur = words[idx];
+      cur.classList.remove('is-active');
+      cur.classList.add('is-exiting');
+      idx = (idx + 1) % words.length;
+      words[idx].classList.remove('is-exiting');
+      words[idx].classList.add('is-active');
+      setTimeout(function () { cur.classList.remove('is-exiting'); }, 500);
+    }, 2400);
+  }
+
   /* ---------- ticker: only run while visible ---------- */
   var ticker = document.querySelector('.ticker');
   if (ticker && 'IntersectionObserver' in window) {

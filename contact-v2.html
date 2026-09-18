@@ -1,0 +1,988 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css?v=v3">
+  <title>Contact Us | Africa Climate Finance</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <style>
+    /* ── V2 CONTACT — EXPERIMENTAL ── */
+
+    .cv2-canvas {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+
+    .cv2-wrap {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    /* ── HERO: full-viewport conversational opener ── */
+    .cv2-hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px 60px;
+      position: relative; overflow: hidden;
+    }
+
+    .cv2-hero-inner {
+      max-width: 720px;
+    }
+
+    .cv2-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 800;
+      font-variation-settings: "wdth" 85, "opsz" 48;
+      line-height: 1.05;
+      color: var(--forest-800);
+      margin: 0;
+    }
+
+    .cv2-hero h1 em {
+      font-style: normal;
+      color: var(--gold-500);
+      font-variation-settings: "wdth" 75, "opsz" 48;
+    }
+
+    .cv2-hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      color: var(--ink-500);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .cv2-scroll-cue {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--ink-500); font-size: 0.82rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      animation: cv2-bounce 2s ease-in-out infinite;
+    }
+
+    .cv2-scroll-cue svg { width: 20px; height: 20px; }
+
+    @keyframes cv2-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── PATH CHOOSER ── */
+    .cv2-paths {
+      padding: 80px 24px 100px;
+      text-align: center;
+    }
+
+    .cv2-paths h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--forest-800);
+      margin: 0 0 16px;
+    }
+
+    .cv2-paths-sub {
+      font-family: var(--font-body);
+      color: var(--ink-500);
+      font-size: 1rem;
+      margin-bottom: 48px;
+    }
+
+    .cv2-path-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .cv2-path-card {
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 40px 28px 36px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv2-path-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--forest-800), var(--forest-700));
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-out);
+    }
+
+    .cv2-path-card:hover, .cv2-path-card.is-active {
+      border-color: var(--forest-800);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cv2-path-card.is-active::before {
+      opacity: 1;
+    }
+
+    .cv2-path-card.is-active .cv2-path-icon,
+    .cv2-path-card.is-active h3,
+    .cv2-path-card.is-active p {
+      color: #fff;
+      position: relative; z-index: 1;
+    }
+
+    .cv2-path-icon {
+      width: 48px; height: 48px;
+      margin: 0 auto 20px;
+      color: var(--forest-800);
+      transition: color 0.4s var(--ease-out);
+    }
+
+    .cv2-path-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--forest-800);
+      margin: 0 0 8px;
+      transition: color 0.4s var(--ease-out);
+      position: relative; z-index: 1;
+    }
+
+    .cv2-path-card p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--ink-500);
+      line-height: 1.5;
+      margin: 0;
+      transition: color 0.4s var(--ease-out);
+      position: relative; z-index: 1;
+    }
+
+    /* ── CHAT-STYLE FORM ── */
+    .cv2-chat {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .cv2-chat-step {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s var(--ease-out);
+      margin-bottom: 32px;
+    }
+
+    .cv2-chat-step.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cv2-bubble {
+      display: flex; gap: 14px;
+      align-items: flex-start;
+    }
+
+    .cv2-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--forest-800);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-500);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .cv2-msg {
+      background: var(--stone-100);
+      border-radius: 0 16px 16px 16px;
+      padding: 16px 20px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--ink-900);
+      line-height: 1.55;
+      max-width: 80%;
+    }
+
+    .cv2-msg .cv2-typing {
+      display: inline-flex; gap: 4px; align-items: center; height: 1.2em;
+    }
+
+    .cv2-typing span {
+      width: 6px; height: 6px;
+      background: var(--ink-500);
+      border-radius: 50%;
+      animation: cv2-dot 1.2s infinite;
+    }
+
+    .cv2-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .cv2-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes cv2-dot {
+      0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .cv2-input-row {
+      margin-top: 12px;
+      margin-left: 54px;
+    }
+
+    .cv2-field {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--ink-900);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .cv2-field:focus {
+      border-color: var(--forest-800);
+      box-shadow: 0 0 0 4px rgba(20, 82, 64, 0.1);
+    }
+
+    .cv2-field::placeholder {
+      color: var(--ink-500);
+      opacity: 0.6;
+    }
+
+    textarea.cv2-field {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .cv2-next-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 10px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: var(--forest-800);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .cv2-next-btn:hover {
+      background: var(--forest-700);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cv2-next-btn svg { width: 16px; height: 16px; }
+
+    /* ── PROGRESS BAR ── */
+    .cv2-progress {
+      position: fixed; top: 0; left: 0;
+      height: 3px;
+      background: var(--gold-500);
+      z-index: 999;
+      transition: width 0.5s var(--ease-out);
+    }
+
+    /* ── SEND STEP ── */
+    .cv2-send-area {
+      text-align: center;
+    }
+
+    .cv2-send-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 40px;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: var(--gold-500);
+      color: var(--forest-950);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv2-send-btn:hover {
+      background: var(--gold-600);
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(224, 161, 61, 0.4);
+    }
+
+    .cv2-send-btn svg { width: 20px; height: 20px; }
+
+    .cv2-consent {
+      margin-top: 16px;
+      display: flex; align-items: flex-start; gap: 10px;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--ink-500);
+    }
+
+    .cv2-consent input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--forest-800);
+    }
+
+    /* ── SUCCESS SCREEN ── */
+    .cv2-success {
+      display: none;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .cv2-success.is-visible {
+      display: block;
+      animation: cv2-pop 0.6s var(--ease-out);
+    }
+
+    .cv2-success-check {
+      width: 80px; height: 80px;
+      margin: 0 auto 24px;
+      background: var(--forest-800);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-500);
+    }
+
+    .cv2-success h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--forest-800);
+      margin: 0 0 12px;
+    }
+
+    .cv2-success p {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--ink-500);
+    }
+
+    @keyframes cv2-pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ── QUICK CONTACT STRIP ── */
+    .cv2-quick {
+      padding: 60px 24px 80px;
+      text-align: center;
+      background: var(--stone-100);
+    }
+
+    .cv2-quick h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--forest-800);
+      margin: 0 0 32px;
+    }
+
+    .cv2-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cv2-quick-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-decoration: none;
+      color: var(--ink-900);
+      transition: all 0.3s var(--ease-out);
+      border: 1px solid var(--line);
+    }
+
+    .cv2-quick-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--forest-800);
+    }
+
+    .cv2-quick-item svg {
+      width: 32px; height: 32px;
+      color: var(--forest-800);
+      margin-bottom: 12px;
+    }
+
+    .cv2-quick-item h3 {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: var(--forest-800);
+    }
+
+    .cv2-quick-item p {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--ink-500);
+      margin: 0;
+    }
+
+    /* ── MAP SECTION ── */
+    .cv2-map {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .cv2-map iframe {
+      width: 100%; height: 100%; border: 0;
+      filter: grayscale(0.3) contrast(1.1);
+    }
+
+    .cv2-map-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, var(--white) 0%, transparent 20%, transparent 80%, var(--stone-100) 100%);
+      pointer-events: none;
+    }
+
+    /* ── MAGNETIC CURSOR ── */
+    .cv2-cursor {
+      position: fixed;
+      width: 20px; height: 20px;
+      border: 2px solid var(--forest-800);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      display: none;
+    }
+
+    .cv2-cursor.is-hover {
+      width: 50px; height: 50px;
+      background: rgba(224, 161, 61, 0.15);
+      border-color: var(--gold-500);
+    }
+
+    @media (pointer: fine) {
+      .cv2-cursor { display: block; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .cv2-msg { max-width: 92%; }
+      .cv2-input-row { margin-left: 0; }
+      .cv2-bubble { gap: 10px; }
+      .cv2-avatar { width: 32px; height: 32px; font-size: 0.7rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cv2-chat-step { opacity: 1; transform: none; transition: none; }
+      .cv2-cursor { display: none; }
+      .cv2-scroll-cue { animation: none; }
+      .cv2-typing span { animation: none; opacity: 0.6; }
+    }
+  </style>
+</head>
+<body id="top">
+
+<div id="header-placeholder" data-active="contact"></div>
+<script src="assets/js/header-loader.js?v=v2"></script>
+
+<!-- progress bar -->
+<div class="cv2-progress" id="cv2Progress" style="width:0%"></div>
+
+<!-- custom cursor -->
+<div class="cv2-cursor" id="cv2Cursor"></div>
+
+<!-- generative background -->
+<canvas class="cv2-canvas" id="cv2Canvas"></canvas>
+
+<main id="main" class="cv2-wrap">
+
+  <!-- HERO -->
+  <section class="cv2-hero">
+    <div class="cv2-hero-inner">
+      <h1>Let's start a <em>conversation</em>.</h1>
+      <p class="cv2-hero-sub">Whether you're a development partner, a cooperative, or a community leader — we're here. Tell us what you need, and we'll respond within 24 hours.</p>
+    </div>
+    <div class="cv2-scroll-cue">
+      <span>scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- PATH CHOOSER -->
+  <section class="cv2-paths" id="cv2Paths">
+    <h2>What brings you here?</h2>
+    <p class="cv2-paths-sub">Pick a path — it shapes the conversation.</p>
+    <div class="cv2-path-grid">
+
+      <div class="cv2-path-card" data-path="partner" tabindex="0">
+        <svg class="cv2-path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 34c-4 0-8-3-8-8s4-8 8-8h4l4-6h8l4 6h4c4 0 8 3 8 8s-4 8-8 8"/>
+          <path d="M18 34l6-8 6 8"/>
+          <circle cx="24" cy="38" r="4"/>
+        </svg>
+        <h3>Partnership inquiry</h3>
+        <p>Development partner, funder, or institutional collaboration.</p>
+      </div>
+
+      <div class="cv2-path-card" data-path="project" tabindex="0">
+        <svg class="cv2-path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="12" width="32" height="28" rx="3"/>
+          <path d="M16 12V9a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v3"/>
+          <line x1="8" y1="24" x2="40" y2="24"/>
+          <line x1="24" y1="24" x2="24" y2="30"/>
+        </svg>
+        <h3>Project support</h3>
+        <p>Market analysis, financial modelling, climate risk — a specific service need.</p>
+      </div>
+
+      <div class="cv2-path-card" data-path="general" tabindex="0">
+        <svg class="cv2-path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 36V12a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H16l-8 4z"/>
+          <line x1="16" y1="18" x2="32" y2="18"/>
+          <line x1="16" y1="24" x2="26" y2="24"/>
+        </svg>
+        <h3>General question</h3>
+        <p>Anything else — media, careers, or just curious.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHAT FORM -->
+  <section class="cv2-chat" id="cv2Chat" style="display:none;">
+    <form id="cv2Form" data-form-handler="gas" action="#" method="POST">
+      <input type="hidden" name="_subject" value="Contact from Africa Climate Finance">
+      <input type="hidden" name="path" id="cv2PathField" value="">
+
+      <!-- Step 1: Name -->
+      <div class="cv2-chat-step" data-step="1">
+        <div class="cv2-bubble">
+          <div class="cv2-avatar">ACF</div>
+          <div class="cv2-msg" id="cv2Msg1">
+            <span class="cv2-typing"><span></span><span></span><span></span></span>
+          </div>
+        </div>
+        <div class="cv2-input-row" style="display:none" id="cv2Input1">
+          <input class="cv2-field" type="text" name="name" placeholder="Your full name" required autocomplete="name">
+          <button type="button" class="cv2-next-btn" data-go="2">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 2: Email -->
+      <div class="cv2-chat-step" data-step="2">
+        <div class="cv2-bubble">
+          <div class="cv2-avatar">ACF</div>
+          <div class="cv2-msg" id="cv2Msg2">
+            <span class="cv2-typing"><span></span><span></span><span></span></span>
+          </div>
+        </div>
+        <div class="cv2-input-row" style="display:none" id="cv2Input2">
+          <input class="cv2-field" type="email" name="email" placeholder="you@organization.com" required autocomplete="email">
+          <button type="button" class="cv2-next-btn" data-go="3">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 3: Phone -->
+      <div class="cv2-chat-step" data-step="3">
+        <div class="cv2-bubble">
+          <div class="cv2-avatar">ACF</div>
+          <div class="cv2-msg" id="cv2Msg3">
+            <span class="cv2-typing"><span></span><span></span><span></span></span>
+          </div>
+        </div>
+        <div class="cv2-input-row" style="display:none" id="cv2Input3">
+          <input class="cv2-field" type="tel" name="phone" placeholder="+255 7XX XXX XXX" required autocomplete="tel">
+          <button type="button" class="cv2-next-btn" data-go="4">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 4: Subject -->
+      <div class="cv2-chat-step" data-step="4">
+        <div class="cv2-bubble">
+          <div class="cv2-avatar">ACF</div>
+          <div class="cv2-msg" id="cv2Msg4">
+            <span class="cv2-typing"><span></span><span></span><span></span></span>
+          </div>
+        </div>
+        <div class="cv2-input-row" style="display:none" id="cv2Input4">
+          <input class="cv2-field" type="text" name="msg_subject" placeholder="Brief subject line" required>
+          <button type="button" class="cv2-next-btn" data-go="5">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Step 5: Message -->
+      <div class="cv2-chat-step" data-step="5">
+        <div class="cv2-bubble">
+          <div class="cv2-avatar">ACF</div>
+          <div class="cv2-msg" id="cv2Msg5">
+            <span class="cv2-typing"><span></span><span></span><span></span></span>
+          </div>
+        </div>
+        <div class="cv2-input-row" style="display:none" id="cv2Input5">
+          <textarea class="cv2-field" name="message" placeholder="Tell us everything..." required></textarea>
+        </div>
+      </div>
+
+      <!-- Step 6: Send -->
+      <div class="cv2-chat-step" data-step="6">
+        <div class="cv2-send-area">
+          <div class="cv2-consent">
+            <input type="checkbox" name="gridCheck" id="cv2Consent" value="I agree to the terms and privacy policy." required>
+            <label for="cv2Consent">I agree to the <a href="terms-of-service.php.html">Terms</a> and <a href="privacy-policy.php.html">Privacy Policy</a>.</label>
+          </div>
+          <button type="submit" class="cv2-send-btn" style="margin-top:20px;">
+            Send message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <p class="form-status" role="status" style="margin-top:12px; font-family:var(--font-body); color:var(--ink-500);"></p>
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- SUCCESS -->
+  <div class="cv2-success" id="cv2Success">
+    <div class="cv2-success-check">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>Message sent.</h2>
+    <p>We'll be in touch within 24 hours. In the meantime:</p>
+    <div style="margin-top:24px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://wa.me/255754763558" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:0.9rem;">WhatsApp us</a>
+      <a href="index.html" class="btn btn-ghost-dark" style="font-size:0.9rem;">Back to home</a>
+    </div>
+  </div>
+
+  <!-- QUICK CONTACT -->
+  <section class="cv2-quick">
+    <h2>Or reach us directly</h2>
+    <div class="cv2-quick-grid">
+      <a class="cv2-quick-item" href="mailto:hello@climatefinance.co.tz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <h3>Email</h3>
+        <p>hello@climatefinance.co.tz</p>
+      </a>
+      <a class="cv2-quick-item" href="tel:+255754763558">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <h3>Phone</h3>
+        <p>+255 754 763 558</p>
+      </a>
+      <a class="cv2-quick-item" href="https://wa.me/255754763558" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.38 8.38 0 0 1 12.5 3h.5A8.48 8.48 0 0 1 21 11.5z"/></svg>
+        <h3>WhatsApp</h3>
+        <p>Message us</p>
+      </a>
+      <a class="cv2-quick-item" href="about.php.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        <h3>Visit</h3>
+        <p>Rungwe, Mbeya, Tanzania</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="cv2-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127385!2d33.667!3d-9.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMTUnMDAuMCJTIDMzwrA0MCcwMC4wIkU!5e0!3m2!1sen!2stz!4v1709481600!5m2!1sen!2stz" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Africa Climate Finance location"></iframe>
+    <div class="cv2-map-overlay"></div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="assets/js/footer-loader.js?v=v2"></script>
+
+<button type="button" class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/nav.js?v=v2"></script>
+<script src="assets/js/form-config.js"></script>
+<script src="assets/js/contact-form.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Generative canvas background ── */
+  const canvas = document.getElementById('cv2Canvas');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [], mouse = { x: -1000, y: -1000 };
+  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize() {
+    w = canvas.width = innerWidth;
+    h = canvas.height = innerHeight;
+  }
+
+  function initParticles() {
+    particles = [];
+    const count = Math.min(60, Math.floor(w * h / 18000));
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.5 + 1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        o: Math.random() * 0.12 + 0.03
+      });
+    }
+  }
+
+  function drawParticles() {
+    if (prefersReduced) return;
+    ctx.clearRect(0, 0, w, h);
+
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+      const dx = mouse.x - p.x, dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 200) {
+        p.x -= dx * 0.008;
+        p.y -= dy * 0.008;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(20,82,64,' + p.o + ')';
+      ctx.fill();
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(20,82,64,' + (0.06 * (1 - dist / 140)) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(drawParticles);
+  }
+
+  resize();
+  initParticles();
+  drawParticles();
+  addEventListener('resize', () => { resize(); initParticles(); });
+  addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  /* ── Custom cursor ── */
+  const cursor = document.getElementById('cv2Cursor');
+  if (matchMedia('(pointer: fine)').matches) {
+    addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button, .cv2-path-card, .cv2-field').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+    });
+  }
+
+  /* ── Chat messages per path ── */
+  const messages = {
+    partner: {
+      1: "Great — a partnership inquiry. Let's start with introductions. What's your name?",
+      2: "Nice to meet you! What's the best email for follow-up?",
+      3: "And a phone number in case we need to connect quickly?",
+      4: "What's the partnership about? Give us a short subject.",
+      5: "Tell us more — scope, timeline, how you see us working together."
+    },
+    project: {
+      1: "Project support — we've got seven service lines ready. First, who are we speaking with?",
+      2: "Thanks! Where should we send the project response?",
+      3: "A phone number for our team to reach you?",
+      4: "Which service area does this fall under?",
+      5: "Describe the project — location, scale, what stage you're at."
+    },
+    general: {
+      1: "Happy to chat. What's your name?",
+      2: "What email should we reply to?",
+      3: "A phone number, just in case?",
+      4: "What's this about?",
+      5: "Go ahead — we're listening."
+    }
+  };
+
+  let currentPath = null;
+  let currentStep = 0;
+  const progress = document.getElementById('cv2Progress');
+  const totalSteps = 6;
+
+  function updateProgress() {
+    progress.style.width = ((currentStep / totalSteps) * 100) + '%';
+  }
+
+  /* ── Path selection ── */
+  document.querySelectorAll('.cv2-path-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.cv2-path-card').forEach(c => c.classList.remove('is-active'));
+      card.classList.add('is-active');
+      currentPath = card.dataset.path;
+      document.getElementById('cv2PathField').value = currentPath;
+      document.getElementById('cv2Chat').style.display = 'block';
+
+      currentStep = 0;
+      document.querySelectorAll('.cv2-chat-step').forEach(s => {
+        s.classList.remove('is-visible');
+        s.querySelector('.cv2-input-row')?.setAttribute('style', 'display:none');
+      });
+
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => showStep(1), 600);
+      }, 300);
+    });
+
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+
+  /* ── Step reveal with typing effect ── */
+  function showStep(n) {
+    currentStep = n;
+    updateProgress();
+    const step = document.querySelector('[data-step="' + n + '"]');
+    if (!step) return;
+
+    step.classList.add('is-visible');
+    step.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const msgEl = document.getElementById('cv2Msg' + n);
+    const inputEl = document.getElementById('cv2Input' + n);
+
+    if (msgEl && messages[currentPath] && messages[currentPath][n]) {
+      setTimeout(() => {
+        msgEl.textContent = messages[currentPath][n];
+        if (inputEl) {
+          inputEl.style.display = '';
+          const field = inputEl.querySelector('.cv2-field');
+          if (field) setTimeout(() => field.focus(), 200);
+        }
+      }, 800);
+    }
+
+    if (n === 5) {
+      setTimeout(() => {
+        const step6 = document.querySelector('[data-step="6"]');
+        step6.classList.add('is-visible');
+        currentStep = 6;
+        updateProgress();
+      }, 400);
+    }
+  }
+
+  /* ── Next buttons ── */
+  document.querySelectorAll('.cv2-next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('.cv2-input-row');
+      const field = row.querySelector('.cv2-field');
+      if (field && !field.value.trim()) {
+        field.style.borderColor = '#e25a5a';
+        field.focus();
+        setTimeout(() => field.style.borderColor = '', 1500);
+        return;
+      }
+      const next = parseInt(btn.dataset.go);
+      showStep(next);
+    });
+  });
+
+  /* ── Enter to advance ── */
+  document.querySelectorAll('.cv2-field').forEach(field => {
+    if (field.tagName === 'TEXTAREA') return;
+    field.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const btn = field.closest('.cv2-input-row').querySelector('.cv2-next-btn');
+        if (btn) btn.click();
+      }
+    });
+  });
+
+  /* ── Form submit ── */
+  const form = document.getElementById('cv2Form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const consent = document.getElementById('cv2Consent');
+    if (!consent.checked) {
+      consent.focus();
+      return;
+    }
+
+    const btn = form.querySelector('.cv2-send-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+    const obj = {};
+    data.forEach((v, k) => obj[k] = v);
+
+    const gasUrl = (window.FORM_CONFIG && window.FORM_CONFIG.gas_url) || '';
+    if (!gasUrl) {
+      showSuccess();
+      return;
+    }
+
+    fetch(gasUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(obj).toString()
+    })
+    .then(() => showSuccess())
+    .catch(() => {
+      const status = form.querySelector('.form-status');
+      status.textContent = 'Something went wrong — please email us directly.';
+      btn.textContent = 'Send message';
+      btn.disabled = false;
+    });
+  });
+
+  function showSuccess() {
+    form.closest('.cv2-chat').style.display = 'none';
+    document.querySelector('.cv2-paths').style.display = 'none';
+    progress.style.width = '100%';
+    setTimeout(() => { progress.style.opacity = '0'; }, 1000);
+
+    const success = document.getElementById('cv2Success');
+    success.classList.add('is-visible');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+})();
+</script>
+</body>
+</html>
